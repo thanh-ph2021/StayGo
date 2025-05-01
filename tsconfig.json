@@ -1,3 +1,29 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@Screens/*": ["src/Screens/*"],
+      "@Screens": ["src/Screens/index.ts"],
+      "@Store/*": ["src/Store/*"],
+      "@Store": ["src/Store/index.ts"],
+      "@Hooks/*": ["src/Hooks/*"],
+      "@Hooks": ["src/Hooks/index.ts"],
+      "@Components/*": ["src/Components/*"],
+      "@Components": ["src/Components/index.ts"],
+      "@Constants/*": ["src/Constants/*"],
+      "@Constants": ["src/Constants/index.ts"],
+      "@Navigations/*": ["src/Navigations/*"],
+      "@Navigations": ["src/Navigations/index.ts"],
+      "@Utils/*": ["src/Utils/*"],
+      "@Utils": ["src/Utils/index.ts"],
+      "@Assets/*": ["src/Assets/*"],
+      "@Assets": ["src/Assets/index.ts"],
+      "@Apis/*": ["src/Apis/*"],
+      "@Apis": ["src/Apis/index.ts"],
+      "@Storage/*": ["src/Storage/*"],
+      "@Storage": ["src/Storage/index.ts"],
+    },
+  },
 }
