@@ -55,8 +55,6 @@ const TextComponent = (props: Props) => {
                 style={{ lineHeight: 21, marginTop: 10, color: Colors.primary }}
             >{textShown ? 'Read less' : 'Read more'}</Text> : <></>}
         </>
-
-
     )
 }
 

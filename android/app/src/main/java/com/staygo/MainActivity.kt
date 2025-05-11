@@ -7,6 +7,8 @@ import com.facebook.react.defaults.DefaultReactActivityDelegate
 
 import android.os.Bundle
 import org.devio.rn.splashscreen.SplashScreen
+import android.content.Intent
+import com.facebook.CallbackManager
 
 class MainActivity : ReactActivity() {
 
@@ -22,6 +24,15 @@ class MainActivity : ReactActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     SplashScreen.show(this, true)
     super.onCreate(savedInstanceState)
+  }
+
+  companion object {
+    val callbackManager: CallbackManager = CallbackManager.Factory.create()
+  }
+
+  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    callbackManager.onActivityResult(requestCode, resultCode, data)
   }
 
   /**

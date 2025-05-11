@@ -3,7 +3,7 @@ export const ROUTES = {
   AUTH: 'AUTH',
   MAIN: 'MAIN',
   SIGN_IN: 'SIGN_IN',
-  SIGN_UP: 'SIGN_UP',
+  EMAIL_INPUT: 'EMAIL_INPUT',
   OTP: 'OTP',
   TABS: 'TABS',
   HOME: 'HOME',

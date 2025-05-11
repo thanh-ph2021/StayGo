@@ -1,6 +1,6 @@
 declare module 'react-native-config' {
     export interface NativeConfig {
-        GOOGLE_API_KEY?: string
+        FACEBOOK_APP_ID?: string
         webClientId?: string
         API_VERSION?: string
     }

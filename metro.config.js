@@ -27,6 +27,8 @@ const config = {
             '@Assets': path.resolve(__dirname, 'src/Assets'),
             '@Apis': path.resolve(__dirname, 'src/Apis'),
             '@Storage': path.resolve(__dirname, 'src/Storage'),
+            '@Models': path.resolve(__dirname, 'src/Models'),
+            '@Services': path.resolve(__dirname, 'src/Services'),
         },
     },
 };

@@ -8,14 +8,15 @@ const Colors = {
     background: "#FFFFFF",
     containerBackground: "#DEDEDE",
     surface: "#D9D9D9",
+    button: "#F6F6F6",
 
     text: '#000000',
     textPrimary: '#000000',
-    textSecondary: '#666666',
+    textSecondary: '#78828A',
 
     info: '#80CE8E',
 
-    placehodler: '#A4A1A1',
+    placeholder: '#A4A1A1',
 
 }
 

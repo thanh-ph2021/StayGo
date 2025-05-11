@@ -11,6 +11,7 @@ import { TextComponent } from '@Components'
 import { Indicator } from '@Components'
 import { AppButton } from '@Components'
 import { ROUTES } from '@Navigations'
+import { MMKV_KEYS, setItem } from '@Storage'
 
 
 
@@ -82,10 +83,11 @@ const OnBoardingScreen = ({ navigation }: NativeStackScreenProps<any>) => {
     }, [isLast])
 
     const completeOnboarding = (route: string) => {
+        setItem(MMKV_KEYS.IS_FIRST_LAUNCH, 'true')
         navigation.dispatch(
             CommonActions.reset({
                 index: 0,
-                routes: [{ name: ROUTES.AUTH, params: { screen: route } }],
+                routes: [{ name: route }],
             })
         )
     }
@@ -191,7 +193,7 @@ const OnBoardingScreen = ({ navigation }: NativeStackScreenProps<any>) => {
 
                 <Animated.View style={[{ flexDirection: 'row', marginTop: Spacing.m }, animatedStyle]}>
                     <TextComponent text="Don't have an account? " style={Fonts.body4} color='white' />
-                    <TouchableOpacity onPress={() => completeOnboarding(ROUTES.SIGN_UP)}>
+                    <TouchableOpacity onPress={() => completeOnboarding(ROUTES.EMAIL_INPUT)}>
                         <TextComponent text="Register" style={Fonts.body4} color={Colors.primary} />
                     </TouchableOpacity>
                 </Animated.View>

@@ -7,9 +7,11 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start --reset-cache",
-    "test": "jest"
+    "test": "jest",
+    "logcat": "adb logcat *:E"
   },
   "dependencies": {
+    "@react-native-google-signin/google-signin": "^13.2.0",
     "@react-navigation/bottom-tabs": "^7.3.9",
     "@react-navigation/native": "^7.1.5",
     "@react-navigation/native-stack": "^7.3.9",
@@ -20,11 +22,15 @@
     "react-native-asset": "^2.1.1",
     "react-native-config": "^1.5.5",
     "react-native-fast-image": "^8.6.3",
+    "react-native-fbsdk-next": "^13.4.1",
+    "react-native-gesture-handler": "^2.25.0",
     "react-native-mmkv": "^3.2.0",
+    "react-native-notifier": "^2.0.0",
     "react-native-reanimated": "^3.17.5",
     "react-native-safe-area-context": "^5.3.0",
     "react-native-screens": "^4.10.0",
     "react-native-splash-screen": "^3.3.0",
+    "react-native-svg": "^15.11.2",
     "react-redux": "^9.2.0"
   },
   "devDependencies": {

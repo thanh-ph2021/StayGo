@@ -3,22 +3,21 @@ import SplashScreen from "react-native-splash-screen"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { NavigationContainer } from "@react-navigation/native"
 
-import AuthStack from "./AuthStack"
 import MainAppStack from "./MainAppStack"
 import { getItem, MMKV_KEYS } from "@Storage"
 import { ROUTES } from "./routes"
-import { OnBoardingScreen } from "@Screens"
+import { EmailInputScreen, OnBoardingScreen, OTPScreen, SigInScreen } from "@Screens"
 
 const Stack = createNativeStackNavigator()
 
 const RootNavigator = () => {
     const [isLoading, setIsLoading] = useState(true)
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isFirstLaunch, setIsFirstLaunch] = useState(false)
 
     useEffect(() => {
         async function fetchData() {
-            const loggedIn = getItem(MMKV_KEYS.IS_LOGGED_IN)
-            setIsLoggedIn(loggedIn === 'true')
+            const isFirstLaunch = getItem(MMKV_KEYS.IS_FIRST_LAUNCH)
+            setIsFirstLaunch(isFirstLaunch === 'true')
             setIsLoading(false)
         }
         fetchData()
@@ -35,7 +34,7 @@ const RootNavigator = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName={!isLoggedIn ? ROUTES.ONBOARDING : ROUTES.MAIN}
+                initialRouteName={!isFirstLaunch ? ROUTES.ONBOARDING : ROUTES.MAIN}
                 screenOptions={{
                     headerShown: false,
                     statusBarAnimation: 'slide',
@@ -43,9 +42,11 @@ const RootNavigator = () => {
                 }}
             >
                 <Stack.Screen name={ROUTES.ONBOARDING} component={OnBoardingScreen} />
-                {!isLoggedIn ? <Stack.Screen name={ROUTES.AUTH} component={AuthStack} /> : <Stack.Screen name={ROUTES.MAIN} component={MainAppStack} />}
+                <Stack.Screen name={ROUTES.MAIN} component={MainAppStack} />
+                <Stack.Screen name={ROUTES.SIGN_IN} component={SigInScreen} />
+                <Stack.Screen name={ROUTES.EMAIL_INPUT} component={EmailInputScreen} />
+                <Stack.Screen name={ROUTES.OTP} component={OTPScreen} />
             </Stack.Navigator>
-
         </NavigationContainer>
     )
 }

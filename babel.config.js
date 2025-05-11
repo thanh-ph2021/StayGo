@@ -17,6 +17,8 @@ module.exports = {
           '@Assets': './src/Assets',
           '@Apis': './src/Apis',
           '@Storage': './src/Storage',
+          '@Models': './src/Models',
+          '@Services': './src/Services',
         },
       },
     ],
