@@ -5,5 +5,6 @@ export interface UserModel {
     userRole: string
     userRoleId: string
     phone: string,
-    avatar: string
+    avatar: string,
+    country: string
 }

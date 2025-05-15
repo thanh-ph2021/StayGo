@@ -1,14 +1,15 @@
 const Colors = {
     primary: '#2853AF',
-    primaryLight: '#D5EBFF',
+    primaryLight: '#006CE1',
     secondary: '#3D5A80',
-    accent: '#EE6C4D',
+    accent: '#F41F52',
     highlight: '#98C1D9',
 
     background: "#FFFFFF",
     containerBackground: "#DEDEDE",
     surface: "#D9D9D9",
     button: "#F6F6F6",
+    warning: "#EDB900",
 
     text: '#000000',
     textPrimary: '#000000',

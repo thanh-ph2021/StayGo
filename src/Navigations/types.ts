@@ -11,4 +11,7 @@ export type RootStackParamList = {
 
 export type BottomTabParamList = {
   [ROUTES.HOME]: undefined
+  [ROUTES.MY_BOOKING]: undefined
+  [ROUTES.MESSAGE]: undefined
+  [ROUTES.PROFILE]: undefined
 }
