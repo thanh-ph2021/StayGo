@@ -20,6 +20,8 @@ const SignInScreen = () => {
     const handleGoogleLogin = async () => {
         try {
             const idToken = await signInWithGoogle()
+            if (!idToken) return
+
             setLoading(true)
             const response = await authApi.loginWithGoogle({ idToken })
 
@@ -41,28 +43,31 @@ const SignInScreen = () => {
     }
 
     const handleFacebookLogin = async () => {
-    try {
-        setLoading(true)
-        const accessToken = await signInWithFacebook()
-        const response = await authApi.loginWithFacebook({ accessToken })
+        try {
+           
+            const accessToken = await signInWithFacebook()
+            if (!accessToken) return
 
-        const { value } = response
-        if (response.isSuccess && value && value.userProfile && value.token) {
-            await setItem(MMKV_KEYS.ACCESS_TOKEN, value.token)
-            dispatch(loginSuccess(value.userProfile))
-            navigation.dispatch(
-                CommonActions.reset({
-                    index: 0,
-                    routes: [{ name: ROUTES.MAIN }],
-                })
-            )
+             setLoading(true)
+            const response = await authApi.loginWithFacebook({ accessToken })
+
+            const { value } = response
+            if (response.isSuccess && value && value.userProfile && value.token) {
+                await setItem(MMKV_KEYS.ACCESS_TOKEN, value.token)
+                dispatch(loginSuccess(value.userProfile))
+                navigation.dispatch(
+                    CommonActions.reset({
+                        index: 0,
+                        routes: [{ name: ROUTES.MAIN }],
+                    })
+                )
+            }
+        } catch (err) {
+            showNotification("Facebook login failed.", () => <Icons.Danger size={30} />)
+        } finally {
+            setLoading(false)
         }
-    } catch (err) {
-        showNotification("Facebook login failed.", () => <Icons.Danger size={30} />)
-    } finally {
-        setLoading(false)
     }
-}
 
     return (
         <Container>

@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
 import { View, TouchableOpacity, StyleSheet, Image, FlatList, ScrollView, Text } from 'react-native'
 import MapView from 'react-native-maps'
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 import { useAppSelector } from '@Hooks'
 import { userProfile } from '@Store/authSlice'
 import { Container, Divider, Icons, TextComponent } from '@Components'
 import { Colors, Fonts, Radius, Spacing } from '@Constants'
 import { UtilStyles } from '@Utils'
+import { RootStackParamList, ROUTES } from '@Navigations'
 
 // Sample Data
 const popularVillas = [
@@ -69,6 +72,7 @@ const filterTabs = [
 const HomeScreen = () => {
   const user = useAppSelector(userProfile)
   const [filter, setFilter] = useState(filterTabs[0])
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 
   useEffect(() => {
   }, [])
@@ -208,7 +212,7 @@ const HomeScreen = () => {
 
         <View style={styles.sectionHeader}>
           <TextComponent text="Hotel Near You" style={Fonts.h3} />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate(ROUTES.NEARBY_HOTEL)}>
             <TextComponent text="Open Map" style={Fonts.body4} color={Colors.primary} />
           </TouchableOpacity>
         </View>

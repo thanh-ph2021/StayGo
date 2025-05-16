@@ -1,7 +1,7 @@
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import { LoginManager, AccessToken } from 'react-native-fbsdk-next'
 
-export const signInWithGoogle = async (): Promise<string> => {
+export const signInWithGoogle = async (): Promise<string | null> => {
     try {
         await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true })
 
@@ -9,7 +9,8 @@ export const signInWithGoogle = async (): Promise<string> => {
         const idToken = userInfo.data?.idToken
 
         if (!idToken) {
-            throw new Error('Google Sign-In failed: Missing idToken.')
+            console.warn('⚠️ Google Sign-In returned no idToken.')
+            return null
         }
 
         return idToken
@@ -19,17 +20,19 @@ export const signInWithGoogle = async (): Promise<string> => {
     }
 }
 
-export const signInWithFacebook = async (): Promise<string> => {
+export const signInWithFacebook = async (): Promise<string | null> => {
     try {
         const loginResult = await LoginManager.logInWithPermissions(['public_profile', 'email'])
 
         if (loginResult.isCancelled) {
-            throw new Error('Facebook login was cancelled.')
+            console.log('⚠️ Facebook login was cancelled by user.')
+            return null
         }
 
         const data = await AccessToken.getCurrentAccessToken()
-        if (!data || !data.accessToken) {
-            throw new Error('Failed to get Facebook access token.')
+        if (!data?.accessToken) {
+            console.warn('⚠️ Facebook login: missing access token.')
+            return null
         }
 
         return data.accessToken.toString()
