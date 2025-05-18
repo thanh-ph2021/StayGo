@@ -7,8 +7,9 @@ export const ROUTES = {
   OTP: 'OTP',
   TABS: 'TABS',
   NEARBY_HOTEL: 'NEARBY_HOTEL',
+  SEARCH: 'SEARCH',
   HOME: 'HOME',
   MY_BOOKING: 'MY_BOOKING',
   MESSAGE: 'MESSAGE',
-  PROFILE: 'PROFILE',
+  PROFILE: 'PROFILE'
 } as const

@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { ROUTES } from './routes'
 import BottomTabsNavigator from './BottomTabsNavigator'
-import { NearbyHotelsScreen } from '@Screens'
+import { NearbyHotelsScreen, SearchScreen } from '@Screens'
 
 
 const Stack = createNativeStackNavigator()
@@ -12,6 +12,7 @@ export default function MainAppStack() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name={ROUTES.TABS} component={BottomTabsNavigator} />
             <Stack.Screen name={ROUTES.NEARBY_HOTEL} component={NearbyHotelsScreen} />
+            <Stack.Screen name={ROUTES.SEARCH} component={SearchScreen} />
         </Stack.Navigator>
     )
 }

@@ -106,8 +106,7 @@ export default function NearbyHotelsScreen() {
                         <Callout tooltip>
                             <View style={styles.calloutWrapper}>
                                 <View style={styles.calloutContainer}>
-                                    <Icons.Hotel size={18} />
-                                    <TextComponent text={hotel.rating.toFixed(1)} style={Fonts.body3} />
+                                    <TextComponent text={`$${hotel.price}`} style={Fonts.body3} color={Colors.primary}/>
                                 </View>
                                 <View style={styles.arrow} />
                             </View>

@@ -32,12 +32,15 @@ const ProfileScreen = () => {
             <TextComponent text={'Profile'} style={styles.headerText} />
           </View>
 
-          <View style={styles.userInfo}>
-            {user.avatar ? <Image source={{ uri: user.avatar }} resizeMode='cover' style={styles.avatar} /> : <Icons.Profile size={60} color={Colors.textSecondary} />}
-            <View style={styles.userDetails}>
-              <TextComponent text={user.fullName} style={Fonts.h3} />
-              <TextComponent text={user.email} style={Fonts.body5} color={Colors.textSecondary} />
+          <View style={styles.userInfoContainer}>
+            <View style={styles.userInfo}>
+              {user.avatar ? <Image source={{ uri: user.avatar }} resizeMode='cover' style={styles.avatar} /> : <Icons.Profile size={60} color={Colors.textSecondary} />}
+              <View style={styles.userDetails}>
+                <TextComponent text={user.fullName} style={Fonts.h3} />
+                <TextComponent text={user.email} style={Fonts.body5} color={Colors.textSecondary} />
+              </View>
             </View>
+
             <TouchableOpacity>
               <Icons.Edit size={25} color={Colors.text} />
             </TouchableOpacity>
@@ -92,11 +95,16 @@ const styles = StyleSheet.create({
     width: '100%',
     textAlign: 'center',
   },
-  userInfo: {
+  userInfoContainer: {
     padding: Spacing.l,
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.l,
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  userInfo: {
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    gap: Spacing.l
   },
   avatar: {
     width: 60,

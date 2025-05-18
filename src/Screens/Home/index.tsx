@@ -96,7 +96,7 @@ const HomeScreen = () => {
               />
             </View> : <></>}
           </View>
-          <TouchableOpacity style={styles.iconBtn}>
+          <TouchableOpacity style={styles.iconBtn} onPress={() => navigation.navigate(ROUTES.SEARCH)}>
             <Icons.Search size={22} color={Colors.text} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.iconBtn}>
