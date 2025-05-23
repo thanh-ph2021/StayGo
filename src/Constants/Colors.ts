@@ -18,6 +18,7 @@ const Colors = {
     info: '#80CE8E',
 
     placeholder: '#A4A1A1',
+    divider: '#D8D8D8'
 
 }
 

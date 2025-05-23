@@ -1,13 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { View, StyleSheet, Image, TouchableOpacity, Text, FlatList, ScrollView, TextInput } from 'react-native'
-import MapView, { Callout, Marker, MapMarker } from 'react-native-maps'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
-import { AppButton, Container, Divider, Icons, TextComponent } from '@Components'
+import { AppBottomSheet, Container, Divider, Icons, TextComponent } from '@Components'
 import { UtilStyles } from '@Utils'
 import { RootStackParamList } from '@Navigations'
-import { Colors, Fonts, Radius, Spacing } from '@Constants'
+import { Colors, Fonts, Radius, Sizes, Spacing } from '@Constants'
+import FilterView from './FilterView'
 
 const datas = [
     {
@@ -54,6 +54,13 @@ const filterTabs = [
 export default function SearchScreen() {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
     const [searchText, setSearchText] = useState('')
+    const bottomSheetRef = useRef<any>(null)
+
+    const showBottomSheet = () => {
+        if (bottomSheetRef.current) {
+            bottomSheetRef.current.snapTo(0)
+        }
+    }
 
     useEffect(() => {
     }, [])
@@ -84,12 +91,15 @@ export default function SearchScreen() {
                     placeholderTextColor={Colors.textSecondary}
                 />
                 <View style={{ flex: 1 }} />
-                <TouchableOpacity style={{ borderLeftColor: Colors.textSecondary, borderLeftWidth: 1, paddingLeft: Spacing.s }}>
+                <TouchableOpacity
+                    onPress={showBottomSheet}
+                    style={{ borderLeftColor: Colors.textSecondary, borderLeftWidth: 1, paddingLeft: Spacing.s }}
+                >
                     <Icons.Filter size={20} />
                 </TouchableOpacity>
             </View>
 
-            <ScrollView>
+            <ScrollView showsHorizontalScrollIndicator={false}>
                 {searchText ? (
                     <>
                         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filterTabs}>
@@ -242,6 +252,17 @@ export default function SearchScreen() {
                         />
                     </>
                 )}
+                <AppBottomSheet
+                    ref={bottomSheetRef}
+                    snapPoints={[Sizes.height * 0.9, Sizes.height]}
+                >
+                    <FilterView
+                        onApply={(filters) => {
+                            console.log(filters)
+                            bottomSheetRef.current?.close()
+                        }}
+                    />
+                </AppBottomSheet>
             </ScrollView>
         </Container>
     )

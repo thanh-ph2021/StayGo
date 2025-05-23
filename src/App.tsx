@@ -1,4 +1,5 @@
-import { useEffect } from "react"
+import React, { useEffect } from "react"
+import { PortalProvider } from '@gorhom/portal'
 import { Provider } from "react-redux"
 import { NotifierWrapper } from "react-native-notifier"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
@@ -23,9 +24,11 @@ function App() {
     return (
         <Provider store={store}>
             <GestureHandlerRootView>
-                <NotifierWrapper>
-                    <RootNavigator />
-                </NotifierWrapper>
+                <PortalProvider>
+                    <NotifierWrapper>
+                        <RootNavigator />
+                    </NotifierWrapper>
+                </PortalProvider>
             </GestureHandlerRootView>
         </Provider>
     )

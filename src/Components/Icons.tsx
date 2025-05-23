@@ -5,6 +5,18 @@ type Props = {
 }
 
 const Icons = {
+    Checkbox: ({ color = "#000", size = 24 }: Props) => (
+        <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+            <Rect x="3" y="3" width="18" height="18" rx="5" fill={color} />
+            <Rect x="3" y="3" width="18" height="18" rx="5" stroke={color} strokeWidth="2" />
+            <Path d="M9.70711 11.2929C9.31658 10.9024 8.68342 10.9024 8.29289 11.2929C7.90237 11.6834 7.90237 12.3166 8.29289 12.7071L10.2929 14.7071C10.6834 15.0976 11.3166 15.0976 11.7071 14.7071L15.7071 10.7071C16.0976 10.3166 16.0976 9.68342 15.7071 9.29289C15.3166 8.90237 14.6834 8.90237 14.2929 9.29289L11 12.5858L9.70711 11.2929Z" fill="#FEFEFE" />
+        </Svg>
+    ),
+    ArrowDown: ({ color = "#000", size = 24 }: Props) => (
+        <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+            <Path d="M19.9201 8.94995L13.4001 15.47C12.6301 16.24 11.3701 16.24 10.6001 15.47L4.08008 8.94995" stroke={color} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+        </Svg>
+    ),
     BathRoom: ({ color = "#000", size = 24 }: Props) => (
         <Svg width={size} height={size} viewBox="0 0 16 16" fill="none">
             <Path d="M1.33337 8.66659H14.6667" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
