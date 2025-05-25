@@ -9,6 +9,7 @@ export type RootStackParamList = {
   [ROUTES.MAIN]: undefined
   [ROUTES.NEARBY_HOTEL]: undefined
   [ROUTES.SEARCH]: undefined
+  [ROUTES.HOTEL_DETAIL]: {hotelId: string}
 }
 
 export type BottomTabParamList = {

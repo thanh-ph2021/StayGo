@@ -138,7 +138,10 @@ const HomeScreen = () => {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.contentContainerStyle}
           renderItem={({ item }) => (
-            <TouchableOpacity style={styles.popularCard}>
+            <TouchableOpacity
+              style={styles.popularCard}
+              onPress={() => navigation.navigate(ROUTES.HOTEL_DETAIL, { hotelId: item.id })}
+            >
               <Image source={{ uri: item.image }} style={styles.popularImage} />
               <View style={styles.popularOverlay}>
                 <View style={styles.heartIcon}>
