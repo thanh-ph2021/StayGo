@@ -5,6 +5,23 @@ type Props = {
 }
 
 const Icons = {
+    Calendar: ({ color = "#000", size = 24 }: Props) => (
+        <Svg width={size} height={size + 1} viewBox="0 0 20 21" fill="none">
+            <Path d="M6.66675 2.1665V4.6665" stroke={color} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+            <Path d="M13.3333 2.1665V4.6665" stroke={color} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+            <Path d="M2.91675 8.0752H17.0834" stroke={color} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+            <Path d="M17.5 7.58317V14.6665C17.5 17.1665 16.25 18.8332 13.3333 18.8332H6.66667C3.75 18.8332 2.5 17.1665 2.5 14.6665V7.58317C2.5 5.08317 3.75 3.4165 6.66667 3.4165H13.3333C16.25 3.4165 17.5 5.08317 17.5 7.58317Z" stroke={color} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+            <Path d="M9.99632 11.9167H10.0038" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <Path d="M6.91185 11.9167H6.91933" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <Path d="M6.91185 14.4167H6.91933" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </Svg>
+    ),
+    User: ({ color = "#000", size = 24 }: Props) => (
+        <Svg width={size} height={size + 1} viewBox="0 0 20 21" fill="none">
+            <Path d="M9.99992 10.4998C12.3011 10.4998 14.1666 8.63436 14.1666 6.33317C14.1666 4.03198 12.3011 2.1665 9.99992 2.1665C7.69873 2.1665 5.83325 4.03198 5.83325 6.33317C5.83325 8.63436 7.69873 10.4998 9.99992 10.4998Z" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <Path d="M17.1582 18.8333C17.1582 15.6083 13.9499 13 9.99988 13C6.04988 13 2.84155 15.6083 2.84155 18.8333" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </Svg>
+    ),
     Support24: ({ color = "#000", size = 24 }: Props) => (
         <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
             <Path d="M12 22.75C11.3 22.75 10.59 22.48 10.06 21.95L8.35001 20.26C7.92001 19.84 7.35999 19.61 6.75999 19.61H6C3.93 19.61 2.25 17.94 2.25 15.89V4.97998C2.25 2.92998 3.93 1.26001 6 1.26001H18C20.07 1.26001 21.75 2.92998 21.75 4.97998V15.89C21.75 17.94 20.07 19.61 18 19.61H17.24C16.64 19.61 16.07 19.84 15.65 20.26L13.94 21.95C13.41 22.48 12.7 22.75 12 22.75ZM6 2.75C4.76 2.75 3.75 3.74997 3.75 4.96997V15.88C3.75 17.11 4.76 18.1 6 18.1H6.75999C7.75999 18.1 8.7 18.4899 9.41 19.1899L11.12 20.88C11.61 21.36 12.4 21.36 12.89 20.88L14.6 19.1899C15.31 18.4899 16.25 18.1 17.25 18.1H18C19.24 18.1 20.25 17.1 20.25 15.88V4.96997C20.25 3.73997 19.24 2.75 18 2.75H6Z" fill={color} />

@@ -1,12 +1,12 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { BottomTabBarProps, createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 
 import { ROUTES } from "./routes"
 import { BottomTabParamList } from './types'
 import { Icons, TextComponent } from '@Components'
-import { Colors, Fonts, Radius, Spacing } from '@Constants'
-import { HomeScreen, ProfileScreen } from '@/Screens'
+import { Colors, Fonts, Spacing } from '@Constants'
+import { HomeScreen, MyBookingScreen, ProfileScreen } from '@/Screens'
 
 const Tab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -104,7 +104,7 @@ const BottomTabsNavigator = () => {
 
         >
             <Tab.Screen name={ROUTES.HOME} component={HomeScreen} />
-            <Tab.Screen name={ROUTES.MY_BOOKING} component={HomeScreen} />
+            <Tab.Screen name={ROUTES.MY_BOOKING} component={MyBookingScreen} />
             <Tab.Screen name={ROUTES.MESSAGE} component={HomeScreen} />
             <Tab.Screen name={ROUTES.PROFILE} component={ProfileScreen} />
         </Tab.Navigator>
